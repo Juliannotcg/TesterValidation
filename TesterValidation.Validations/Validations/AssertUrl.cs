@@ -4,7 +4,12 @@ using System.Text;
 
 namespace TesterValidation.Validations.Validations
 {
-    class AssertUrl
+    public class AssertUrl
     {
+        public static void AssertIsValid(string url, string errorMessage)
+        {
+            if (!Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+                throw new InvalidOperationException(errorMessage);
+        }
     }
 }

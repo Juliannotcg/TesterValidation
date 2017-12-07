@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using ValidationTester.Commons.Utils;
 
 namespace TesterValidation.Validations.Validations
 {
@@ -40,8 +41,8 @@ namespace TesterValidation.Validations.Validations
                 return;
             }
 
-            //int d1 = NumberUtils.Modulus11(cnpj.Substring(0, 12), 9, false);
-            //int d2 = NumberUtils.Modulus11(cnpj.Substring(0, 12) + d1, 9, false);
+            int d1 = NumberUtils.Modulus11(cnpj.Substring(0, 12), 9, false);
+            int d2 = NumberUtils.Modulus11(cnpj.Substring(0, 12) + d1, 9, false);
 
             string shouldBe = d1.ToString() + d2.ToString();
             string informed = cnpj.Substring(12);
